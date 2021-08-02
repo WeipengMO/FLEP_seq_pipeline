@@ -65,11 +65,14 @@ def main(inreadinfo, inbed, out):
             #The first intron is f_feature_num, and the last intron is l_feature_num-1, 
             #whatever the f_feature_type or l_feature_type is exon or intron.
             for intron_num in range(f_feature_num, l_feature_num):
-                intron_pos3, intron_id = intron_datas[intron_num-1]
-                retention = 1 if intron_num in retention_introns else 0
-                rel_pos = rel_gene_pos3 - intron_pos3
-                r = [intron_id, mRNA_intron_num, intron_num, rel_pos, retention, read_id]
-                o.write("\t".join([str(s) for s in r]) + "\n")
+                try:
+                    intron_pos3, intron_id = intron_datas[intron_num-1]
+                    retention = 1 if intron_num in retention_introns else 0
+                    rel_pos = rel_gene_pos3 - intron_pos3
+                    r = [intron_id, mRNA_intron_num, intron_num, rel_pos, retention, read_id]
+                    o.write("\t".join([str(s) for s in r]) + "\n")
+                except IndexError:
+                    print(mRNA)
 
 def read_by_column_names(filein, select_column_names, sep="\t"):
     
