@@ -1,0 +1,5 @@
+sample_name: 20210728_atx1_seedling_part
+genome: /scem/work/mowp/db/Arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa
+mm2thread: 36
+fast5_dir: guppy_out/workspace
+sequencing_summary: sequencing_summary.txt

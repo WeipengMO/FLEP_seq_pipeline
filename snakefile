@@ -1,8 +1,8 @@
 '''
-@Author       : windz
-@Date         : 2020-05-08 09:51:48
+Author       : windz
+Date         : 2020-05-08 09:51:48
 LastEditTime : 2020-12-07 09:51:37
-@Description  : A pipline for calling polya tail length
+Description  : A pipline for calling polya tail length
 
     You can run like this:
     snakemake -j 8 -p -c 'bsub -J {rulename} -n {threads} -o log/%J.stdout -e log/%J.stderr'
@@ -16,6 +16,7 @@ if not os.path.exists('log'):
 
 configfile: 'config.yml'
 SAMPLE_NAME=config['sample_name']
+genome_data=config['genome']
 
 
 rule all:
@@ -43,7 +44,7 @@ rule mapping_to_genome:
     output:
         bam='aligned_data/{sample_name}.sorted.bam'
     params:
-        genome='/scem/work/mowp/db/Arabidopsis_thaliana/dna/genome.fasta'
+        genome=genome_data
     threads: 32
     shell:
         '''
