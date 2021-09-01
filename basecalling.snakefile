@@ -2,9 +2,8 @@
 @Author       : windz
 @Date         : 2020-05-08 09:51:48
 @LastEditTime : 2020-05-08 11:26:12
-@Description  : A pipline for calling polya tail length
 
-snakemake -j 15 -c 'bsub -J {rulename} -n {threads} -gpu "num=2" -o %J.stdout -e %J.stderr' -s snakefile_for_bascalled
+snakemake -j 15 -c 'bsub -J {rulename} -n {threads} -gpu "num=2" -o %J.stdout -e %J.stderr' -s basecalling.snakefile
 
 '''
 
