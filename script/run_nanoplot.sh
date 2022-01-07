@@ -1,4 +1,4 @@
-#BSUB -J merge_fastq
+#BSUB -J run_nanoplot
 #BSUB -n 36
 #BSUB -o %J.stdout
 #BSUB -e %J.stderr
